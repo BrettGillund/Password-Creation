@@ -2,24 +2,34 @@ var generateBtn = document.querySelector('#generate')
 // var count = 0;
 
 function generatePassword() {
-    var wantsLength = prompt('Please choose a length between 8 and 128.');
-        wantsLength = Number(wantsLength); // This converts the string provided by the prompt into a Number type. 
-    var wantsUppercase = confirm('Please press "Okay" if you would you like to include uppercase letter letter(s) in your password?');
-    var wantsLowercase = confirm('Please press "Okay" if you would you like to include lowercase letter letter(s) in your password?');
-    var wantsSpecialChar = confirm('Please press "Okay" if you would you like to include special character(s) in your password?');
-    var wantsNumbers = confirm('Please press "Okay" if you would you like to include number(s) in your password?');
-    var uppercase = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
-    var lowercase = 'abcdefghijklmnopqrstuvwxyz';
-    var specialChar = '!"#$%&()*+,-./:;<=>?@[\\]^_`{|}~';
-    var numbers = '0123456789'
-    var passwordResult = '';
-    var passwordE1 = document.querySelector('#password');
+  var wantsLength = prompt('Please choose a length between 8 and 128.');
+      wantsLength = Number(wantsLength); // This converts the string provided by the prompt into a Number type. 
+  var wantsUppercase = confirm('Please press "Okay" if you would you like to include uppercase letter letter(s) in your password?');
+  var wantsLowercase = confirm('Please press "Okay" if you would you like to include lowercase letter letter(s) in your password?');
+  var wantsSpecialChar = confirm('Please press "Okay" if you would you like to include special character(s) in your password?');
+  var wantsNumbers = confirm('Please press "Okay" if you would you like to include number(s) in your password?');
+  var uppercase = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+  var lowercase = 'abcdefghijklmnopqrstuvwxyz';
+  var specialChar = '!"#$%&()*+,-./:;<=>?@[\\]^_`{|}~';
+  var numbers = '0123456789'
+  var passwordResult = '';
+  var passwordE1 = document.querySelector('#password');
 
 
+   function charactersIncluded () {
+      if (wantsUppercase) {
+      }
+      if (wantsLowercase) {
+      }
+      if (wantsSpecialChar) {
+      }
+      if (wantsNumbers) {
+      } else { alert('Please enter minimum character requirement. There needs to be at least one style of character slected.')
+    }
+    charactersIncluded = [uppercase, lowercase, specialChar, numbers]
+    console.log(charactersIncluded)
+  }
 
-
-
-console.log(charactersIncluded)
 
     for (var count = 0; count < wantsLength ; count++)  {
         passwordResult += charactersIncluded[Math.floor(Math.random() * (charactersIncluded.length - 1) + 1)];
