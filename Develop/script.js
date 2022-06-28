@@ -32,14 +32,17 @@ function generatePassword() {
       if (wantsNumbers == true) {
        characterSet += numbers;
       }
-      if (wantsLength <= 128) {
-      } else if (wantsLength >= 8) {
-      } else { alert('Please enter minimum character requirement. There needs to be at least one style of character slected.')
+      if (7 < wantsLength) { 
+      if (128 > wantsLength) {
+        // This for statement will create a randomized password based on the chosen character set and length chosen. 
+        for (var count = 0; count < wantsLength ; count++)  {
+            passwordResult += characterSet[Math.floor(Math.random() * (characterSet.length - 1) + 1)];}
+        }  else { alert('Please choose a value within the required character requirement. There needs to be at least one style of character slected.')
+      }
+      } else { alert('Please choose a value within the required character requirement. There needs to be at least one style of character slected.')
       }
     
-      // This for statement will create a randomized password based on the chosen character set and length chosen. 
-      for (var count = 0; count < wantsLength ; count++)  {
-        passwordResult += characterSet[Math.floor(Math.random() * (characterSet.length - 1) + 1)];}
+
 
 
 
