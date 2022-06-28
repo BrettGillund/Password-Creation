@@ -11,30 +11,36 @@ function generatePassword() {
   var uppercase = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
   var lowercase = 'abcdefghijklmnopqrstuvwxyz';
   var specialChar = '!"#$%&()*+,-./:;<=>?@[\\]^_`{|}~';
-  var numbers = '0123456789'
+  var numbers = '0123456789';
+  var characterSet = '';
   var passwordResult = '';
   var passwordE1 = document.querySelector('#password');
 
+    // user is prompted to choose their character set, and the length of the password they would like. 
+    // we gather all of the characters that they have chosen. 
+    // we then randomize a result based on the length they have decided. 
 
-   function charactersIncluded () {
-      if (wantsUppercase) {
+      if (wantsUppercase == true) {
+       characterSet += uppercase;
       }
-      if (wantsLowercase) {
+      if (wantsLowercase == true) {
+       characterSet += lowercase;
       }
-      if (wantsSpecialChar) {
+      if (wantsSpecialChar == true) {
+       characterSet += specialChar;
       }
-      if (wantsNumbers) {
+      if (wantsNumbers == true) {
+       characterSet += numbers;
+      }
+      if (wantsLength <= 128) {
+      } else if (wantsLength >= 8) {
       } else { alert('Please enter minimum character requirement. There needs to be at least one style of character slected.')
-    }
-    charactersIncluded = [uppercase, lowercase, specialChar, numbers]
-    console.log(charactersIncluded)
-  }
+      }
+    
+      // This for statement will create a randomized password based on the chosen character set and length chosen. 
+      for (var count = 0; count < wantsLength ; count++)  {
+        passwordResult += characterSet[Math.floor(Math.random() * (characterSet.length - 1) + 1)];}
 
-
-    for (var count = 0; count < wantsLength ; count++)  {
-        passwordResult += charactersIncluded[Math.floor(Math.random() * (charactersIncluded.length - 1) + 1)];
-
-    }
 
 
     passwordE1.innerText = passwordResult;
